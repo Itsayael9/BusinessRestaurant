@@ -30,6 +30,15 @@ export interface Dish {
 export const formatPrice = (price: number) =>
   `€${price.toFixed(2).replace(".", ",")}`;
 
+/** Spain-style closing: midnight is shown as 24:00, not 00:00. */
+export const formatOpeningTime = (time: string) => {
+  if (time === "00:00" || time === "23:30") return "24:00";
+  return time;
+};
+
+export const formatHoursRange = (from: string, to: string) =>
+  `${formatOpeningTime(from)}-${formatOpeningTime(to)}`;
+
 export const getAllergenIcon = (allergen: string): LucideIcon => {
   const map: Record<string, LucideIcon> = {
     gluten: Wheat,

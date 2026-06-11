@@ -4,13 +4,18 @@
     "language": "Idioma"
   },
   "hero": {
-    "title": "Menu Business",
+    "title": "Business Menu",
     "subtitle": "Sabors tradicionals de Barcelona"
   },
   "search": {
     "placeholder": "Cerca categoria o plat...",
     "noResults": "Sense resultats",
     "results": "Resultats"
+  },
+  "video": {
+    "title": "El nostre restaurant",
+    "subtitle": "Coneix-nos",
+    "unsupported": "El teu navegador no admet la reproducció de vídeo."
   },
   "categories": {
     "title": "Les nostres Categories",
@@ -24,7 +29,7 @@
   },
   "hours": {
     "title": "Horari",
-    "brief": "Horari: De dilluns a dijous 07:00—23:30, cap de setmana: 08:00—00:00",
+    "brief": "Horari: De dilluns a dijous 07:00-24:00, cap de setmana: 08:00-24:00",
     "subtitle": "Consulta ràpida per dia",
     "closed": "Tancat",
     "days": {

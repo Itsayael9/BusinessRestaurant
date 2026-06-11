@@ -15,10 +15,28 @@ const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const HIDE_AFTER = 56;
+    const SHOW_BEFORE = 8;
+    let raf = 0;
+
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled((prev) => {
+          if (y > HIDE_AFTER) return true;
+          if (y < SHOW_BEFORE) return false;
+          return prev;
+        });
+      });
+    };
+
     onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -31,14 +49,16 @@ const Header = () => {
         }`}
       >
         <div
-          className={`bg-gold text-white dark:bg-white dark:text-ink border-b border-black/20 dark:border-white/20 transition-all duration-300 overflow-hidden ${
-            scrolled ? "max-h-0 opacity-0 border-b-0" : "max-h-14 sm:max-h-8 opacity-100"
+          className={`overflow-hidden transition-none ${
+            scrolled ? "max-h-0 opacity-0 pointer-events-none" : "max-h-16 opacity-100"
           }`}
         >
-          <div className="container min-h-8 py-1 sm:py-0 flex items-center justify-center">
-            <p className="text-[10px] leading-snug sm:text-xs sm:leading-normal font-medium tracking-wide text-center sm:truncate">
-              {t("hours.brief")}
-            </p>
+          <div className="bg-gold text-white dark:bg-white dark:text-ink border-b border-black/20 dark:border-white/20">
+            <div className="container min-h-8 py-1 sm:py-0 flex items-center justify-center">
+              <p className="text-[10px] leading-snug sm:text-xs sm:leading-normal font-medium tracking-wide text-center sm:truncate">
+                {t("hours.brief")}
+              </p>
+            </div>
           </div>
         </div>
         <div className="container flex items-center justify-between h-16 sm:h-20 gap-4">

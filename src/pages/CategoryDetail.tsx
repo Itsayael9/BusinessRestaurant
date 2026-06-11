@@ -94,9 +94,8 @@ const CategoryDetail = () => {
               setHeroImage("/images/cat-12.png");
             }
           }}
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero-text)" }} />
         <div className="relative h-full container flex flex-col justify-end pb-10 sm:pb-14">
           <nav
             aria-label="Breadcrumb"

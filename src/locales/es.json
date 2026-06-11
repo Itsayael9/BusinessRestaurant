@@ -4,13 +4,18 @@
     "language": "Idioma"
   },
   "hero": {
-    "title": "Menu Business",
+    "title": "Business Menu",
     "subtitle": "Sabores tradicionales de Barcelona"
   },
   "search": {
     "placeholder": "Buscar categoría o plato...",
     "noResults": "Sin resultados",
     "results": "Resultados"
+  },
+  "video": {
+    "title": "Nuestro restaurante",
+    "subtitle": "Conócenos",
+    "unsupported": "Tu navegador no admite la reproducción de vídeo."
   },
   "categories": {
     "title": "Nuestras Categorías",
@@ -24,7 +29,7 @@
   },
   "hours": {
     "title": "Horario",
-    "brief": "Horario: De lunes a jueves 07:00—23:30, fin de semana: 08:00—00:00",
+    "brief": "Horario: De lunes a jueves 07:00-24:00, fin de semana: 08:00-24:00",
     "subtitle": "Consulta rápida por día",
     "closed": "Cerrado",
     "days": {

@@ -38,10 +38,6 @@ const HeroSlider = () => {
   if (slides.length === 0) {
     return (
       <section className="relative w-full overflow-hidden bg-ink aspect-[16/9] md:aspect-[21/9] max-h-[80vh]">
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 55%, rgba(0,0,0,.6))" }}
-        />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 min-h-[280px]">
           <h1 className="font-display text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight hero-text-shadow leading-tight">
             {t("hero.title")}
@@ -68,24 +64,13 @@ const HeroSlider = () => {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 55%, rgba(0,0,0,.6))" }}
-          />
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <h1 className="font-display text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight hero-text-shadow leading-tight">
-            {t("hero.title")}
-          </h1>
-        </motion.div>
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pointer-events-none">
+        <h1 className="font-display text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight hero-text-shadow leading-tight">
+          {t("hero.title")}
+        </h1>
       </div>
 
       <button

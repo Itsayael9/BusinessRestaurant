@@ -108,6 +108,18 @@ function mapDishDoc(id: string, data: Record<string, unknown>): Dish | null {
   };
 }
 
+function applyRestaurantDefaults(
+  info: RestaurantInfo,
+  fallback: RestaurantInfo
+): RestaurantInfo {
+  return {
+    ...info,
+    phone: "+34 935 66 94 93",
+    whatsapp: "+34 935 66 94 93",
+    openingHours: fallback.openingHours ?? info.openingHours,
+  };
+}
+
 export function PublicMenuProvider({ children }: { children: ReactNode }) {
   const fallbackCategories = categoriesData as Category[];
   const fallbackDishes = dishesData as Dish[];
@@ -196,11 +208,7 @@ export function PublicMenuProvider({ children }: { children: ReactNode }) {
         if (!val) {
           setRestaurant(fallbackRestaurant);
         } else {
-          const info = val as RestaurantInfo;
-          // Always use the correct fixed phone number
-          info.phone = "+34 935 66 94 93";
-          info.whatsapp = "+34 935 66 94 93";
-          setRestaurant(info);
+          setRestaurant(applyRestaurantDefaults(val as RestaurantInfo, fallbackRestaurant));
         }
         markReady("restaurant");
       },

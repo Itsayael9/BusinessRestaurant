@@ -3,6 +3,8 @@ import { Clock, ExternalLink, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { usePublicMenu } from "@/contexts/PublicMenuContext";
+import RestaurantVideo from "@/components/customer/RestaurantVideo";
+import { formatHoursRange } from "@/utils/helpers";
 import type { RestaurantInfo } from "@/types/publicSite";
 
 type WeekDay = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
@@ -86,20 +88,16 @@ const LocationMapSection = () => {
               {data.openingHours.weekly.map((row, i) => (
                 <li
                   key={row.day}
-                  className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 py-4 ${
+                  className={`flex items-center justify-between gap-3 py-3.5 sm:py-4 ${
                     i > 0 ? "border-t border-border/80" : ""
                   }`}
                 >
-                  <span className="text-sm font-semibold uppercase tracking-wider text-gold">
+                  <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gold shrink-0">
                     {t(`hours.days.${row.day}`)}
                   </span>
-                  <span className="font-display text-xl sm:text-2xl font-semibold text-foreground tabular-nums tracking-tight">
+                  <span className="font-display text-lg sm:text-2xl font-semibold text-foreground tabular-nums tracking-tight text-right shrink-0">
                     {row.from && row.to ? (
-                      <>
-                        {row.from}
-                        <span className="text-muted-foreground font-normal mx-1.5 sm:mx-2">—</span>
-                        {row.to}
-                      </>
+                      formatHoursRange(row.from, row.to)
                     ) : (
                       <span className="text-muted-foreground font-normal">{t("hours.closed")}</span>
                     )}
@@ -143,6 +141,8 @@ const LocationMapSection = () => {
           </div>
         </div>
       </motion.div>
+
+      <RestaurantVideo className="pt-10 sm:pt-12 pb-4 sm:pb-6" />
 
       <motion.article
         initial={{ opacity: 0, y: 24 }}

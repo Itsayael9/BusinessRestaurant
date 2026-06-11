@@ -1,20 +1,38 @@
 [
   {
     "id": "slider-1",
-    "url": "/images/slide1.png",
+    "url": "/images/img1business.jpeg",
     "order": 1,
     "active": true
   },
   {
     "id": "slider-2",
-    "url": "/images/slide2.jpeg",
+    "url": "/images/img2business.jpeg",
     "order": 2,
     "active": true
   },
   {
     "id": "slider-3",
-    "url": "/images/slide3.jpeg",
+    "url": "/images/img3business.jpeg",
     "order": 3,
+    "active": true
+  },
+  {
+    "id": "slider-4",
+    "url": "/images/img4business.jpeg",
+    "order": 4,
+    "active": true
+  },
+  {
+    "id": "slider-5",
+    "url": "/images/img5business.jpeg",
+    "order": 5,
+    "active": true
+  },
+  {
+    "id": "slider-6",
+    "url": "/images/img6business.jpeg",
+    "order": 6,
     "active": true
   }
 ]
