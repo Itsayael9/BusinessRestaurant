@@ -115,7 +115,7 @@ function applyRestaurantDefaults(
   return {
     ...info,
     phone: "+34 935 66 94 93",
-    whatsapp: "+34 935 66 94 93",
+    whatsapp: fallback.whatsapp ?? info.whatsapp,
     openingHours: fallback.openingHours ?? info.openingHours,
   };
 }

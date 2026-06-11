@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
 const VIDEO_SRC = "/videos/video_business.mp4";
+const VIDEO_POSTER = "/videos/video_business_poster.jpg";
 
 const RestaurantVideo = ({ className }: { className?: string }) => {
   const { t } = useTranslation();
@@ -25,14 +26,17 @@ const RestaurantVideo = ({ className }: { className?: string }) => {
         <div className="h-px w-24 bg-gold mx-auto mt-6" />
       </div>
 
-      <div className="mx-auto w-fit max-w-full rounded-2xl overflow-hidden border-2 border-border shadow-soft">
+      <div className="mx-auto w-fit max-w-full rounded-2xl overflow-hidden border-2 border-border shadow-soft bg-black">
         <video
-          className="block h-auto max-h-[75vh] w-auto max-w-[min(100vw-2rem,360px)]"
+          className="block h-auto max-h-[75vh] w-auto max-w-[min(100vw-2rem,360px)] bg-black"
+          width={720}
+          height={1280}
           controls
           playsInline
-          preload="auto"
-          src={VIDEO_SRC}
+          preload="metadata"
+          poster={VIDEO_POSTER}
         >
+          <source src={VIDEO_SRC} type="video/mp4" />
           {t("video.unsupported")}
         </video>
       </div>
